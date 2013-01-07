@@ -14,8 +14,13 @@
         {"include": "#pound-sign"},
         {"include": "#block-comment"},
 
-        { "match": "\"[-a-zA-Z0-9~@#$%^&*_'`+={}\\[\\]()<>|/!?.,;: ]*\"",
-        "name": "string.quoted.double.stan"},
+        { "begin": "\"", "end": "\"",
+        "name": "string.quoted.double.stan",
+        "patterns": [
+          {"match": "(\\p{^ASCII}|\\p{Cntrl}|\\\\)+",
+           "name": "invalid.illegal.quoted.bad-char.stan"}
+        ]},
+
         { "match": "\\b-?(0|[1-9]\\d*)\\b",
         "name": "constant.numeric.integer.stan"},
         { "match": "\\b-?(0|[1-9]\\d*)?\\.\\d*([eE]-?(0|[1-9]\\d*))?\\b",

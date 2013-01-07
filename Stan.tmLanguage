@@ -50,10 +50,21 @@
 					<string>#block-comment</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>"[-a-zA-Z0-9~@#$%^&amp;*_'`+={}\[\]()&lt;&gt;|/!?.,;: ]*"</string>
+					<key>begin</key>
+					<string>"</string>
+					<key>end</key>
+					<string>"</string>
 					<key>name</key>
 					<string>string.quoted.double.stan</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>match</key>
+							<string>(\p{^ASCII}|\p{Cntrl}|\\)+</string>
+							<key>name</key>
+							<string>invalid.illegal.quoted.bad-char.stan</string>
+						</dict>
+					</array>
 				</dict>
 				<dict>
 					<key>match</key>
