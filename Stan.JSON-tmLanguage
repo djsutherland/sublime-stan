@@ -1,0 +1,61 @@
+{ "name": "Stan",
+  "scopeName": "source.stan",
+  "fileTypes": ["stan"],
+  "patterns": [
+    {"include": "#double-slash"},
+    {"include": "#pound-sign"},
+    {"include": "#block-comment"},
+
+    { "begin": "^\\s*(data|transformed data|parameters|transformed parameters|model|generated quantities)\\s*{",
+      "end": "}",
+      "captures": {"1": { "name": "keyword.control.block-names.stan"}},
+      "patterns": [
+        {"include": "#double-slash"},
+        {"include": "#pound-sign"},
+        {"include": "#block-comment"},
+
+        { "match": "\"[-a-zA-Z0-9~@#$%^&*_'`+={}\\[\\]()<>|/!?.,;: ]*\"",
+        "name": "string.quoted.double.stan"},
+        { "match": "\\b-?(0|[1-9]\\d*)\\b",
+        "name": "constant.numeric.integer.stan"},
+        { "match": "\\b-?(0|[1-9]\\d*)?\\.\\d*([eE]-?(0|[1-9]\\d*))?\\b",
+        "name": "constant.numeric.real.stan"},
+
+        { "match": "\\b(int|real|vector|simplex|ordered|positive_ordered|row_vector|matrix|corr_matrix|cov_matrix)\\b",
+        "name": "storage.type.stan"},
+
+        { "match": "\\b(alignas|alignof|and|and_eq|asm|auto|bitand|bitor|bool|break|case|catch|char|char16_t|char32_t|class|compl|const|constexpr|const_cast|continue|decltype|default|delete|do|double|dynamic_cast|else|enum|explicit|export|extern|false|float|friend|goto|if|inline|long|mutable|namespace|new|noexcept|not|not_eq|nullptr|operator|or|or_eq|private|protected|public|register|reinterpret_cast|return|short|signed|sizeof|static|static_assert|static_cast|struct|switch|template|this|thread_local|throw|true|try|typedef|typeid|typename|union|unsigned|using|virtual|void|volatile|wchar_t|while|xor|xor_eq)\\b",
+        "name": "invalid.illegal.cpp-conflict.stan",
+        "comment": "reserved words in C++ that are invalid in Stan"},
+
+        { "match": "\\b(lower|upper)\\b",
+        "name": "keyword.other.range.stan"},
+        { "match": "\\b(for|in|while|repeat|until|if|then|else)\\b",
+        "name": "keyword.control.loops.stan"},
+
+
+        { "match": "\\b(bernoulli|bernoulli_logit|beta_binomial|hypergeometric|categorical|ordered_logistic|negative_binomial|poisson|multinomial|normal|student_t|cauchy|double_exponential|lognormal|chi_square|inv_chi_square|scaled_inv_chi_square|exponential|gamma|inv_gamma|weibull|pareto|beta|uniform|dirichlet|multi_normal|multi_normal_cholesky|multi_student_t|wishart|inv_wishart|lkj_cov|lkj_corr_cholesky)\\b",
+        "name": "support.function.distribution.stan"},
+        { "match": "\\b(int_step|min|max|pi|e|sqrt2|log2|log10|nan|infinity|negative_infinity|epsilon|negative_epsilon|if_else|step|fabs|fdim|fmin|fmax|fmod|floor|ceil|round|trunc|sqrt|cbrt|square|exp|exp2|log|pow|hypot|cos|sin|tan|acos|asin|atan|atan2|cosh|sinh|tanh|acosh|asinh|atanh|logit|inv_logit|inv_clogc|erf|erfc|Phi|log_loss|tgamma|lgamma|lmgamma|lbeta|binomical_coefficient|expml|fma|multiply_log|loglp|loglm|loglp_exp|log_sum_exp|sum|mean|variance|sd|rows|cols|dot_product|diagonal|diag_matrix|softmax|trace|determinant|inverse|eigenvalues|eigenvectors|eigenvalues_sym|cholesky|singular_values)\\b",
+        "name": "support.function.math.stan"},
+        { "match": "\\bprint\\b",
+        "name": "support.function.other.stan"},
+
+        { "match": "\\blp__\\b",
+        "name": "variable.language.logprob.stan"},
+        { "match": "\\b[a-zA-Z][a-zA-Z0-9_]*__\\b",
+        "name": "invalid.illegal.variable.double-underscore.stan"},
+        { "match": "\\b[a-zA-Z][a-zA-Z0-9_]*\\b",
+        "name": "variable.other.stan"}
+      ]
+    },
+
+    { "match": "[^\\s]+(\\s*[^\\s]+)?", "name": "invalid.illegal.top-level" }
+  ],
+  "uuid": "c96512e4-9455-4f67-91cd-82038a26ec1a",
+  "repository": {
+    "double-slash": {"match": "//.*$", "name": "comment.line.double-slash.stan"},
+    "pound-sign": {"match": "#.*$", "name": "comment.line.number-sign.stan"},
+    "block-comment": { "begin": "/\\*", "end": "\\*/", "name": "comment.block.slashes"}
+  }
+}
