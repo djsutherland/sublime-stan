@@ -4,11 +4,11 @@ Stan Syntax Package for Sublime Text 2
 This is a simple package defining the basic syntax for the
 [Stan](http://mc-stan.org) modeling language in Sublime Text 2 and Textmate.
 
-Homepage: github.com/dougalsutherland/sublime-stan
+Homepage: http://github.com/dougalsutherland/sublime-stan
 
 To install in ST2:
  * The easy way (once it's merged into the channel):
-    Use [Package Control](wbond.net/sublime_packages/package_control)
+    Use [Package Control](wbond.net/sublime_packages/package_control).
  * Manually:
     Go to your packages directory (Preferences -> Browse Packages),
     create a folder named Stan, and copy Stan.tmLanguage into it.
