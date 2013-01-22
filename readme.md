@@ -7,8 +7,8 @@ This is a simple package defining the basic syntax for the
 Homepage: http://github.com/dougalsutherland/sublime-stan
 
 To install in ST2:
- * The easy way (once it's merged into the channel):
-    Use [Package Control](wbond.net/sublime_packages/package_control).
+ * The easy way: install the Stan package from
+    [Package Control](http://wbond.net/sublime_packages/package_control).
  * Manually:
     Go to your packages directory (Preferences -> Browse Packages),
     create a folder named Stan, and copy Stan.tmLanguage into it.
