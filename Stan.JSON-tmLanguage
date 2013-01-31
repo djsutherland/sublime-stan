@@ -14,10 +14,7 @@
         {"include": "#double-slash"},
         {"include": "#pound-sign"},
         {"include": "#block-comment"},
-
         {"include": "#string"},
-        {"include": "#integer"},
-        {"include": "#real"},
 
         {"include": "#type"},
         {"include": "#cpp-conflict"},
@@ -31,6 +28,11 @@
         {"include": "#lp"},
         {"include": "#double-underscore"},
         {"include": "#vars"},
+
+        {"include": "#real-a"},
+        {"include": "#real-b"},
+        {"include": "#real-c"},
+        {"include": "#integer"},
 
         {"include": "#block"}
       ]
@@ -48,11 +50,6 @@
                 "name": "string.quoted.double.stan",
                 "patterns": [ {"match": "(\\p{^ASCII}|\\p{Cntrl}|\\\\)+",
                                "name": "invalid.illegal.quoted.bad-char.stan"}]},
-
-    "integer": { "match": "\\b-?(0|[1-9]\\d*)\\b",
-                 "name": "constant.numeric.integer.stan"},
-    "real": { "match": "\\b-?(0|[1-9]\\d*)?\\.\\d*([eE]-?(0|[1-9]\\d*))?\\b",
-              "name": "constant.numeric.real.stan"},
 
     "type": { "match": "\\b(int|real|vector|simplex|ordered|positive_ordered|row_vector|matrix|corr_matrix|cov_matrix)\\b",
               "name": "storage.type.stan"},
@@ -76,16 +73,25 @@
     "vars": { "match": "\\b[a-zA-Z][a-zA-Z0-9_]*\\b",
               "name": "variable.other.stan"},
 
+    "real-a": { "match": "-?(0|[1-9]\\d*)?\\.\\d+([eE]-?(0|[1-9]\\d*))?",
+              "comment": "have a point with numbers after, maybe an exponent",
+              "name": "constant.numeric.real.stan"},
+    "real-b": { "match": "-?(0|[1-9]\\d*)\\.\\d*([eE]-?(0|[1-9]\\d*))?",
+              "comment": "have a point with numbers before, maybe an exponent",
+              "name": "constant.numeric.real.stan"},
+    "real-c": { "match": "-?(0|[1-9]\\d*)[eE]-?(0|[1-9]\\d*)",
+              "comment": "no point, have an exponent",
+              "name": "constant.numeric.real.stan"},
+    "integer": { "match": "-?(0|[1-9]\\d*)",
+                 "name": "constant.numeric.integer.stan"},
+
     "block": { "begin": "{", "end": "}",
       "contentName": "meta.block.minor.stan",
       "patterns": [
         {"include": "#double-slash"},
         {"include": "#pound-sign"},
         {"include": "#block-comment"},
-
         {"include": "#string"},
-        {"include": "#integer"},
-        {"include": "#real"},
 
         {"include": "#type"},
         {"include": "#cpp-conflict"},
@@ -99,6 +105,11 @@
         {"include": "#lp"},
         {"include": "#double-underscore"},
         {"include": "#vars"},
+
+        {"include": "#real-a"},
+        {"include": "#real-b"},
+        {"include": "#real-c"},
+        {"include": "#integer"},
 
         {"include": "#block"}
       ]
