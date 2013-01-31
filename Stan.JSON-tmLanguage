@@ -22,6 +22,8 @@
         {"include": "#control-flow"},
 
         {"include": "#distributions"},
+        {"include": "#cdfs"},
+        {"include": "#spec-vals"},
         {"include": "#math-fns"},
         {"include": "#other-fns"},
 
@@ -60,9 +62,13 @@
     "control-flow": { "match": "\\b(for|in|while|repeat|until|if|then|else)\\b",
                       "name": "keyword.control.stan"},
 
-    "distributions": { "match": "\\b(bernoulli|bernoulli_logit|beta_binomial|hypergeometric|categorical|ordered_logistic|negative_binomial|poisson|multinomial|normal|student_t|cauchy|double_exponential|lognormal|chi_square|inv_chi_square|scaled_inv_chi_square|exponential|gamma|inv_gamma|weibull|pareto|beta|uniform|dirichlet|multi_normal|multi_normal_cholesky|multi_student_t|wishart|inv_wishart|lkj_cov|lkj_corr_cholesky)\\b",
-                       "name": "support.function.distribution.stan"},
-    "math-fns": { "match": "\\b(int_step|min|max|pi|e|sqrt2|log2|log10|nan|infinity|positive_infinity|negative_infinity|epsilon|negative_epsilon|if_else|step|fabs|fdim|fmin|fmax|fmod|floor|ceil|round|trunc|sqrt|cbrt|square|exp|exp2|log|pow|hypot|cos|sin|tan|acos|asin|atan|atan2|cosh|sinh|tanh|acosh|asinh|atanh|logit|inv_logit|inv_clogc|erf|erfc|Phi|log_loss|tgamma|lgamma|lmgamma|lbeta|binomical_coefficient|expml|fma|multiply_log|loglp|loglm|loglp_exp|log_sum_exp|sum|mean|variance|sd|rows|cols|dot_product|diagonal|diag_matrix|softmax|trace|determinant|inverse|eigenvalues|eigenvectors|eigenvalues_sym|cholesky|singular_values)\\b",
+    "distributions": { "match": "\\b(bernoulli|bernoulli_logit|binomial|binomial_logit|beta_binomial|hypergeometric|categorical|ordered_logistic|neg_binomial|poisson|poisson_log|multinomial|normal|student_t|cauchy|double_exponential|logistic|lognormal|chi_square|inv_chi_square|scaled_inv_chi_square|exponential|gamma|inv_gamma|weibull||pareto|beta|uniform|dirichlet|multi_normal|multi_normal_cholesky|multi_student_t|wishart|inv_wishart|lkj_cov|lkj_corr|lkj_corr_cholesky_log)(_log)?\\b",
+                       "name": "support.function.distribution.pdf.stan"},
+    "cdfs": { "match": "\\b(normal|lognormal|exponential|weibull)_cdf\\b",
+                       "name": "support.function.distribution.cdf.stan"},
+    "spec-vals": { "match": "\\bnot_a_number|positive_infinity|negative_infinity|epsilon|negative_epsilon\\b",
+                   "name": "support.function.special-value.stan"},
+    "math-fns": { "match": "\\b(abs|int_step|fabs|fdim|min|max|pi|e|sqrt2|log2|log10|if_else|step|fmin|fmax|fmod|floor|ceil|round|trunc|sqrt|cbrt|square|exp|exp2|log|pow|hypot|cos|sin|tan|acos|asin|atan|atan2|cosh|sinh|tanh|acosh|asinh|atanh|logit|inv_logit|inv_cloglog|erf|erfc|Phi|Phi_approx|binary_log_loss|tgamma|lgamma|lmgamma|lbeta|binomial_coefficient_log|expm1|fma|multiply_log|log1p|log1m|log1p_exp|log_sum_exp|log_inv_logit|log1m_inv_logit|sum|prod|mean|variance|sd|rows|cols|cumulative_sum|dot_product|dot_self|tcrossprod|crossprod|multiply_lower_tri_self_transpose|diag_pre_multiply|diag_post_multiply|diagonal|diag_matrix|col|row|block|softmax|mdivide_right_tri_low|mdivide_left_tri_low|trace|determinant|inverse|eigenvalues_sym|eigenvectors_sym|cholesky_decompose|singular_values)\\b",
                   "name": "support.function.math.stan"},
     "other-fns": { "match": "\\bprint\\b", "name": "support.function.other.stan"},
 
@@ -99,6 +105,8 @@
         {"include": "#control-flow"},
 
         {"include": "#distributions"},
+        {"include": "#cdfs"},
+        {"include": "#spec-vals"},
         {"include": "#math-fns"},
         {"include": "#other-fns"},
 
