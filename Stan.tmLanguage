@@ -25,7 +25,7 @@
 		<dict>
 			<key>begin</key>
 			<string>^\s*(data|transformed data|parameters|transformed parameters|model|generated quantities)\s*{</string>
-			<key>captures</key>
+			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
 				<dict>
@@ -33,6 +33,8 @@
 					<string>keyword.control.block-names.stan</string>
 				</dict>
 			</dict>
+			<key>contentName</key>
+			<string>meta.block.major.stan</string>
 			<key>end</key>
 			<string>}</string>
 			<key>patterns</key>
@@ -50,95 +52,60 @@
 					<string>#block-comment</string>
 				</dict>
 				<dict>
-					<key>begin</key>
-					<string>"</string>
-					<key>end</key>
-					<string>"</string>
-					<key>name</key>
-					<string>string.quoted.double.stan</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>match</key>
-							<string>(\p{^ASCII}|\p{Cntrl}|\\)+</string>
-							<key>name</key>
-							<string>invalid.illegal.quoted.bad-char.stan</string>
-						</dict>
-					</array>
+					<key>include</key>
+					<string>#string</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\b-?(0|[1-9]\d*)\b</string>
-					<key>name</key>
-					<string>constant.numeric.integer.stan</string>
+					<key>include</key>
+					<string>#integer</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\b-?(0|[1-9]\d*)?\.\d*([eE]-?(0|[1-9]\d*))?\b</string>
-					<key>name</key>
-					<string>constant.numeric.real.stan</string>
+					<key>include</key>
+					<string>#real</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\b(int|real|vector|simplex|ordered|positive_ordered|row_vector|matrix|corr_matrix|cov_matrix)\b</string>
-					<key>name</key>
-					<string>storage.type.stan</string>
+					<key>include</key>
+					<string>#type</string>
 				</dict>
 				<dict>
-					<key>comment</key>
-					<string>reserved words in C++ that are invalid in Stan</string>
-					<key>match</key>
-					<string>\b(alignas|alignof|and|and_eq|asm|auto|bitand|bitor|bool|break|case|catch|char|char16_t|char32_t|class|compl|const|constexpr|const_cast|continue|decltype|default|delete|do|double|dynamic_cast|else|enum|explicit|export|extern|false|float|friend|goto|if|inline|long|mutable|namespace|new|noexcept|not|not_eq|nullptr|operator|or|or_eq|private|protected|public|register|reinterpret_cast|return|short|signed|sizeof|static|static_assert|static_cast|struct|switch|template|this|thread_local|throw|true|try|typedef|typeid|typename|union|unsigned|using|virtual|void|volatile|wchar_t|while|xor|xor_eq)\b</string>
-					<key>name</key>
-					<string>invalid.illegal.cpp-conflict.stan</string>
+					<key>include</key>
+					<string>#cpp-conflict</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\b(lower|upper)\b</string>
-					<key>name</key>
-					<string>keyword.other.range.stan</string>
+					<key>include</key>
+					<string>#range</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\b(for|in|while|repeat|until|if|then|else)\b</string>
-					<key>name</key>
-					<string>keyword.control.loops.stan</string>
+					<key>include</key>
+					<string>#control-flow</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\b(bernoulli|bernoulli_logit|beta_binomial|hypergeometric|categorical|ordered_logistic|negative_binomial|poisson|multinomial|normal|student_t|cauchy|double_exponential|lognormal|chi_square|inv_chi_square|scaled_inv_chi_square|exponential|gamma|inv_gamma|weibull|pareto|beta|uniform|dirichlet|multi_normal|multi_normal_cholesky|multi_student_t|wishart|inv_wishart|lkj_cov|lkj_corr_cholesky)\b</string>
-					<key>name</key>
-					<string>support.function.distribution.stan</string>
+					<key>include</key>
+					<string>#distributions</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\b(int_step|min|max|pi|e|sqrt2|log2|log10|nan|infinity|negative_infinity|epsilon|negative_epsilon|if_else|step|fabs|fdim|fmin|fmax|fmod|floor|ceil|round|trunc|sqrt|cbrt|square|exp|exp2|log|pow|hypot|cos|sin|tan|acos|asin|atan|atan2|cosh|sinh|tanh|acosh|asinh|atanh|logit|inv_logit|inv_clogc|erf|erfc|Phi|log_loss|tgamma|lgamma|lmgamma|lbeta|binomical_coefficient|expml|fma|multiply_log|loglp|loglm|loglp_exp|log_sum_exp|sum|mean|variance|sd|rows|cols|dot_product|diagonal|diag_matrix|softmax|trace|determinant|inverse|eigenvalues|eigenvectors|eigenvalues_sym|cholesky|singular_values)\b</string>
-					<key>name</key>
-					<string>support.function.math.stan</string>
+					<key>include</key>
+					<string>#math-fns</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\bprint\b</string>
-					<key>name</key>
-					<string>support.function.other.stan</string>
+					<key>include</key>
+					<string>#other-fns</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\blp__\b</string>
-					<key>name</key>
-					<string>variable.language.logprob.stan</string>
+					<key>include</key>
+					<string>#lp</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\b[a-zA-Z][a-zA-Z0-9_]*__\b</string>
-					<key>name</key>
-					<string>invalid.illegal.variable.double-underscore.stan</string>
+					<key>include</key>
+					<string>#double-underscore</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>\b[a-zA-Z][a-zA-Z0-9_]*\b</string>
-					<key>name</key>
-					<string>variable.other.stan</string>
+					<key>include</key>
+					<string>#vars</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block</string>
 				</dict>
 			</array>
 		</dict>
@@ -151,6 +118,86 @@
 	</array>
 	<key>repository</key>
 	<dict>
+		<key>block</key>
+		<dict>
+			<key>begin</key>
+			<string>{</string>
+			<key>contentName</key>
+			<string>meta.block.minor.stan</string>
+			<key>end</key>
+			<string>}</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#double-slash</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#pound-sign</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block-comment</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#string</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#integer</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#real</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#type</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#cpp-conflict</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#range</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#control-flow</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#distributions</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#math-fns</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#other-fns</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#lp</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#double-underscore</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#vars</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#block</string>
+				</dict>
+			</array>
+		</dict>
 		<key>block-comment</key>
 		<dict>
 			<key>begin</key>
@@ -160,6 +207,29 @@
 			<key>name</key>
 			<string>comment.block.slashes</string>
 		</dict>
+		<key>control-flow</key>
+		<dict>
+			<key>match</key>
+			<string>\b(for|in|while|repeat|until|if|then|else)\b</string>
+			<key>name</key>
+			<string>keyword.control.stan</string>
+		</dict>
+		<key>cpp-conflict</key>
+		<dict>
+			<key>comment</key>
+			<string>reserved words in C++ that are invalid in Stan</string>
+			<key>match</key>
+			<string>\b(alignas|alignof|and|and_eq|asm|auto|bitand|bitor|bool|break|case|catch|char|char16_t|char32_t|class|compl|const|constexpr|const_cast|continue|decltype|default|delete|do|double|dynamic_cast|else|enum|explicit|export|extern|false|float|friend|goto|if|inline|long|mutable|namespace|new|noexcept|not|not_eq|nullptr|operator|or|or_eq|private|protected|public|register|reinterpret_cast|return|short|signed|sizeof|static|static_assert|static_cast|struct|switch|template|this|thread_local|throw|true|try|typedef|typeid|typename|union|unsigned|using|virtual|void|volatile|wchar_t|while|xor|xor_eq)\b</string>
+			<key>name</key>
+			<string>invalid.illegal.cpp-conflict.stan</string>
+		</dict>
+		<key>distributions</key>
+		<dict>
+			<key>match</key>
+			<string>\b(bernoulli|bernoulli_logit|beta_binomial|hypergeometric|categorical|ordered_logistic|negative_binomial|poisson|multinomial|normal|student_t|cauchy|double_exponential|lognormal|chi_square|inv_chi_square|scaled_inv_chi_square|exponential|gamma|inv_gamma|weibull|pareto|beta|uniform|dirichlet|multi_normal|multi_normal_cholesky|multi_student_t|wishart|inv_wishart|lkj_cov|lkj_corr_cholesky)\b</string>
+			<key>name</key>
+			<string>support.function.distribution.stan</string>
+		</dict>
 		<key>double-slash</key>
 		<dict>
 			<key>match</key>
@@ -167,12 +237,93 @@
 			<key>name</key>
 			<string>comment.line.double-slash.stan</string>
 		</dict>
+		<key>double-underscore</key>
+		<dict>
+			<key>match</key>
+			<string>\b[a-zA-Z][a-zA-Z0-9_]*__\b</string>
+			<key>name</key>
+			<string>invalid.illegal.variable.double-underscore.stan</string>
+		</dict>
+		<key>integer</key>
+		<dict>
+			<key>match</key>
+			<string>\b-?(0|[1-9]\d*)\b</string>
+			<key>name</key>
+			<string>constant.numeric.integer.stan</string>
+		</dict>
+		<key>lp</key>
+		<dict>
+			<key>match</key>
+			<string>\blp__\b</string>
+			<key>name</key>
+			<string>variable.language.logprob.stan</string>
+		</dict>
+		<key>math-fns</key>
+		<dict>
+			<key>match</key>
+			<string>\b(int_step|min|max|pi|e|sqrt2|log2|log10|nan|infinity|negative_infinity|epsilon|negative_epsilon|if_else|step|fabs|fdim|fmin|fmax|fmod|floor|ceil|round|trunc|sqrt|cbrt|square|exp|exp2|log|pow|hypot|cos|sin|tan|acos|asin|atan|atan2|cosh|sinh|tanh|acosh|asinh|atanh|logit|inv_logit|inv_clogc|erf|erfc|Phi|log_loss|tgamma|lgamma|lmgamma|lbeta|binomical_coefficient|expml|fma|multiply_log|loglp|loglm|loglp_exp|log_sum_exp|sum|mean|variance|sd|rows|cols|dot_product|diagonal|diag_matrix|softmax|trace|determinant|inverse|eigenvalues|eigenvectors|eigenvalues_sym|cholesky|singular_values)\b</string>
+			<key>name</key>
+			<string>support.function.math.stan</string>
+		</dict>
+		<key>other-fns</key>
+		<dict>
+			<key>match</key>
+			<string>\bprint\b</string>
+			<key>name</key>
+			<string>support.function.other.stan</string>
+		</dict>
 		<key>pound-sign</key>
 		<dict>
 			<key>match</key>
 			<string>#.*$</string>
 			<key>name</key>
 			<string>comment.line.number-sign.stan</string>
+		</dict>
+		<key>range</key>
+		<dict>
+			<key>match</key>
+			<string>\b(lower|upper)\b</string>
+			<key>name</key>
+			<string>keyword.other.range.stan</string>
+		</dict>
+		<key>real</key>
+		<dict>
+			<key>match</key>
+			<string>\b-?(0|[1-9]\d*)?\.\d*([eE]-?(0|[1-9]\d*))?\b</string>
+			<key>name</key>
+			<string>constant.numeric.real.stan</string>
+		</dict>
+		<key>string</key>
+		<dict>
+			<key>begin</key>
+			<string>"</string>
+			<key>end</key>
+			<string>"</string>
+			<key>name</key>
+			<string>string.quoted.double.stan</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>(\p{^ASCII}|\p{Cntrl}|\\)+</string>
+					<key>name</key>
+					<string>invalid.illegal.quoted.bad-char.stan</string>
+				</dict>
+			</array>
+		</dict>
+		<key>type</key>
+		<dict>
+			<key>match</key>
+			<string>\b(int|real|vector|simplex|ordered|positive_ordered|row_vector|matrix|corr_matrix|cov_matrix)\b</string>
+			<key>name</key>
+			<string>storage.type.stan</string>
+		</dict>
+		<key>vars</key>
+		<dict>
+			<key>match</key>
+			<string>\b[a-zA-Z][a-zA-Z0-9_]*\b</string>
+			<key>name</key>
+			<string>variable.other.stan</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
