@@ -61,15 +61,15 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#cpp-conflict</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#range</string>
 				</dict>
 				<dict>
 					<key>include</key>
 					<string>#control-flow</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#cpp-conflict</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -166,15 +166,15 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#cpp-conflict</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#range</string>
 				</dict>
 				<dict>
 					<key>include</key>
 					<string>#control-flow</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#cpp-conflict</string>
 				</dict>
 				<dict>
 					<key>include</key>
