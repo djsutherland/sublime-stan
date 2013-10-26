@@ -17,9 +17,9 @@
         {"include": "#string"},
 
         {"include": "#type"},
-        {"include": "#cpp-conflict"},
         {"include": "#range"},
         {"include": "#control-flow"},
+        {"include": "#cpp-conflict"},
 
         {"include": "#distributions"},
         {"include": "#cdfs"},
@@ -100,9 +100,9 @@
         {"include": "#string"},
 
         {"include": "#type"},
-        {"include": "#cpp-conflict"},
         {"include": "#range"},
         {"include": "#control-flow"},
+        {"include": "#cpp-conflict"},
 
         {"include": "#distributions"},
         {"include": "#cdfs"},
