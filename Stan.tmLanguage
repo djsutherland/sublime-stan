@@ -24,7 +24,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^\s*(data|transformed data|parameters|transformed parameters|model|generated quantities)\s*{</string>
+			<string>^\s*(data|transformed data|parameters|transformed parameters|model|generated quantities|functions)\s*{</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>

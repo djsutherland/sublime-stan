@@ -6,7 +6,7 @@
     {"include": "#pound-sign"},
     {"include": "#block-comment"},
 
-    { "begin": "^\\s*(data|transformed data|parameters|transformed parameters|model|generated quantities)\\s*{",
+    { "begin": "^\\s*(data|transformed data|parameters|transformed parameters|model|generated quantities|functions)\\s*{",
       "end": "}",
       "beginCaptures": {"1": { "name": "keyword.control.block-names.stan"}},
       "contentName": "meta.block.major.stan",
