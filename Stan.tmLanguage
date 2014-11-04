@@ -249,7 +249,7 @@
 		<key>control-flow</key>
 		<dict>
 			<key>match</key>
-			<string>\b(for|in|while|repeat|until|if|then|else)\b</string>
+			<string>\b(for|in|while|repeat|until|if|then|else|return)\b</string>
 			<key>name</key>
 			<string>keyword.control.stan</string>
 		</dict>
