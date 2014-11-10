@@ -24,7 +24,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>^\s*(data|transformed data|parameters|transformed parameters|model|generated quantities)\s*{</string>
+			<string>^\s*(data|transformed data|parameters|transformed parameters|model|generated quantities|functions)\s*{</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>1</key>
@@ -249,7 +249,7 @@
 		<key>control-flow</key>
 		<dict>
 			<key>match</key>
-			<string>\b(for|in|while|repeat|until|if|then|else)\b</string>
+			<string>\b(for|in|while|repeat|until|if|then|else|return)\b</string>
 			<key>name</key>
 			<string>keyword.control.stan</string>
 		</dict>

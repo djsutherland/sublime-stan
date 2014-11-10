@@ -6,7 +6,7 @@
     {"include": "#pound-sign"},
     {"include": "#block-comment"},
 
-    { "begin": "^\\s*(data|transformed data|parameters|transformed parameters|model|generated quantities)\\s*{",
+    { "begin": "^\\s*(data|transformed data|parameters|transformed parameters|model|generated quantities|functions)\\s*{",
       "end": "}",
       "beginCaptures": {"1": { "name": "keyword.control.block-names.stan"}},
       "contentName": "meta.block.major.stan",
@@ -59,7 +59,7 @@
                       "name": "invalid.illegal.cpp-conflict.stan",
                       "comment": "reserved words in C++ that are invalid in Stan"},
     "range": { "match": "\\b(lower|upper)\\b", "name": "keyword.other.range.stan"},
-    "control-flow": { "match": "\\b(for|in|while|repeat|until|if|then|else)\\b",
+    "control-flow": { "match": "\\b(for|in|while|repeat|until|if|then|else|return)\\b",
                       "name": "keyword.control.stan"},
 
     "distributions": { "match": "\\b(bernoulli|bernoulli_logit|binomial|binomial_logit|beta_binomial|hypergeometric|categorical|ordered_logistic|neg_binomial|poisson|poisson_log|multinomial|normal|student_t|cauchy|double_exponential|logistic|lognormal|chi_square|inv_chi_square|scaled_inv_chi_square|exponential|gamma|inv_gamma|weibull||pareto|beta|uniform|dirichlet|multi_normal|multi_normal_cholesky|multi_student_t|wishart|inv_wishart|lkj_cov|lkj_corr|lkj_corr_cholesky_log)(_log)?\\b",
