@@ -62,7 +62,7 @@
     "control-flow": { "match": "\\b(for|in|while|repeat|until|if|then|else|return)\\b",
                       "name": "keyword.control.stan"},
 
-    "continuous-distributions": { "match": "\\b((normal|exp_mod_normal|skew_normal|student_t|cauchy|double_exponential|logistic|gumbel|lognormal|chi_square|inv_chi_square|scaled_inv_chi_square|exponential|gamma|inv_gamma|weibull|frechet|rayleigh|pareto|pareto_type_2|beta|uniform)(_lpdf|_cdf|_lcdf|_lccdf|_rng)?|(von_mises|multi_normal|multi_normal_cholesky|multi_student_t|dirichlet|lkj_corr|lkj_corr_cholesky|wishart|inv_wi)(_lpdf|_rng)?|(wiener|multi_normal_prec|multi_gp|multi_gp_cholesky|gaussian_dlm_obs)(_lpdf)?)\\b",
+    "continuous-distributions": { "match": "\\b((normal|exp_mod_normal|skew_normal|student_t|cauchy|double_exponential|logistic|gumbel|lognormal|chi_square|inv_chi_square|scaled_inv_chi_square|exponential|gamma|inv_gamma|weibull|frechet|rayleigh|pareto|pareto_type_2|beta|uniform)(_lpdf|_cdf|_lcdf|_lccdf|_rng)?|(von_mises|multi_normal|multi_normal_cholesky|multi_student_t|dirichlet|lkj_corr|lkj_corr_cholesky|wishart|inv_wishart)(_lpdf|_rng)?|(wiener|multi_normal_prec|multi_gp|multi_gp_cholesky|gaussian_dlm_obs)(_lpdf)?)\\b",
                        "name": "support.function.distribution.pdf.stan"},
     "discrete-distributions": { "match": "\\b((bernoulli|binomial|beta_binomial|neg_binomial|neg_binomial_2|poisson)(_lpmf|_cdf|_lcdf|_lccdf|_rng)?|(bernoulli_logit|binomial_logit|hypergeometric|categorical|categorical_logit|ordered_logistic|neg_binomial_2_log|poisson_log|multinomial)(_lpmf|_rng)?)\\b",
                        "name": "support.function.distribution.pdf.stan"},
